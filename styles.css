@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+:root {
+  --num-divs: 16;
+}
+
 .background-container{
   height: 100vh;
   width: 100vw;
@@ -14,16 +18,20 @@
 }
 
 .container{
-  height: 60vh;
-  width: 60vw;
+  height: 600px;
+  width: 600px;
   background-color: #fdfdfd;
   display: flex;
   flex-wrap: wrap;
 }
 
-.divRow{
-  flex-grow: 1;
-  border: solid red;
+.divRow {
+  display: flex; 
+  height: calc(100% / var(--num-divs));
 }
 
-
+.divCol {
+  flex: 1 0 auto;
+  border: 1px solid #000; 
+  width: calc(100% / var(--num-divs));
+}
