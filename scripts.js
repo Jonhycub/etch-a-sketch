@@ -15,7 +15,7 @@ slider.addEventListener('input', function() {         // Add an event listener t
   createGrid(gridSize);
 });
 
-const modesContainer = document.querySelector('.modes-container');    //Selects the modes-container
+const modesContainer = document.querySelector('.modes-container');    //Gets the the modes-container and appends the slider and the slider text
 modesContainer.appendChild(slider);
 modesContainer.appendChild(sliderValue);
 
@@ -38,8 +38,18 @@ function createGrid(num){
   }
 }
 
-//Function that clears the grid.
-function clearGrid(){
+createGrid(slider.value); //Call the function so that the grid appears when the page is loaded
+
+
+function clearGrid(){     //Function that clears the grid.
   gridContainer.innerHTML = "";
 }
 
+const clearGridButton = document.createElement('button');   //Create the Clear Grid button and add the event listener to clear the grid on click
+clearGridButton.innerHTML = "Clear Grid";
+clearGridButton.classList.add('clearGridButton');
+modesContainer.appendChild(clearGridButton);
+clearGridButton.addEventListener('click', ()=> {
+  clearGrid();
+  createGrid(slider.value);
+});
