@@ -31,7 +31,11 @@ function createGrid(num){
       divCol.classList.add('divCol');
       gridContainer.appendChild(divCol);
       divCol.addEventListener('mouseover', () =>{   //Event listener to make the divs change color when the mouse is hovered over them
-        divCol.style.backgroundColor = 'black';
+        if(eraserToggle == false){
+          divCol.style.backgroundColor = 'black';
+        }else{
+          divCol.style.backgroundColor = 'white';
+        }
       })
     }
     gridContainer.appendChild(divRow);
@@ -58,7 +62,7 @@ const toggleGridButton = document.createElement('button');   //Create the Toggle
 toggleGridButton.innerHTML = "Toggle Grid";
 toggleGridButton.classList.add('toggleGridButton');
 modesContainer.appendChild(toggleGridButton);
-toggleGridButton.addEventListener('click', ()=> {
+toggleGridButton.addEventListener('click', ()=> {           //Event listener to toggle the grid on or off on clicking the button
   const gridToggle = document.querySelectorAll('.divCol');
   gridToggle.forEach((div) => {
     if(div.style.border == 'none'){
@@ -67,4 +71,18 @@ toggleGridButton.addEventListener('click', ()=> {
       div.style.border = 'none';
     }
   });
+});
+
+let eraserToggle = false;                                        //Boolean to determine if Eraser is ON or OFF
+const toggleEraserButton = document.createElement('button');   //Create the Toggle Eraser button and add the 
+toggleEraserButton.innerHTML = "Toggle Eraser";
+toggleEraserButton.classList.add('toggleEraserButton');
+modesContainer.appendChild(toggleEraserButton);
+toggleEraserButton.addEventListener('click', ()=> {            //On click swap the state of eraserToggle
+  if(eraserToggle == false){
+    eraserToggle = true;
+  }else{
+    eraserToggle = false;
+  }
+  console.log(eraserToggle);
 });

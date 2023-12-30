@@ -54,7 +54,7 @@ input{
   width: 200px;
 }
 
-.clearGridButton, .toggleGridButton{
+.clearGridButton, .toggleGridButton, .toggleEraserButton{
   width: 200px;
   height: 30px;
   font-size: 15px;
