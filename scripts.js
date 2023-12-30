@@ -61,6 +61,10 @@ modesContainer.appendChild(toggleGridButton);
 toggleGridButton.addEventListener('click', ()=> {
   const gridToggle = document.querySelectorAll('.divCol');
   gridToggle.forEach((div) => {
-    div.style.border = 'none';
+    if(div.style.border == 'none'){
+      div.style.border = '1px solid #6e6969';
+    }else{
+      div.style.border = 'none';
+    }
   });
 });
