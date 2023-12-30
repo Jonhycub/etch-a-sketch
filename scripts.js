@@ -85,7 +85,9 @@ toggleEraserButton.addEventListener('click', ()=> {            //On click swap t
 });
 
 function clearGrid(){     //Function that clears the grid.
-  gridContainer.innerHTML = "";
+  while (gridContainer.firstChild) {
+    gridContainer.removeChild(gridContainer.firstChild);
+  }
 }
 
 const clearGridButton = document.createElement('button');   //Create the Clear Grid button and add the event listener to clear the grid on click
