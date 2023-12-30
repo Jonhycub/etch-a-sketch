@@ -24,7 +24,7 @@ header{
   justify-content: center;
   font-family: 'Rubik Doodle Shadow', sans-serif;
   font-size: 60px;
-  color:rgba(62, 166, 255, 1)
+  color:rgb(35, 233, 45)
 }
 
 .background-container{
@@ -74,15 +74,37 @@ header{
   align-items: center;
 }
 
-.slider{
-  width: 240px;
-  margin: 40px 0 5px 0;
+input[type="range"] {
+  -webkit-appearance: none;
+   appearance: none;
+   background: transparent;
+   cursor: pointer;
+   margin: 40px 0 8px 0;
+   width: 240px;
 }
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: rgb(35, 233, 45);
+  border-radius: 3px;
+  height: 2px;  
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+ -webkit-appearance: none; 
+  appearance: none;
+  margin-top: -9px;
+  background-color: rgb(35, 233, 45);
+  height: 20px;
+  width: 20px; 
+  border-radius: 20px;
+}
+
 .grid-size-text{
   color: white;
   font-size: 16px;
-  color: rgba(62, 166, 255, 1);
-  margin: 5px 0 40px 0;
+  color: rgb(35, 233, 45);
+  margin: 8px 0 40px 0;
 }
 
 .clearGridButton, .toggleGridButton, .toggleEraserButton{
@@ -91,13 +113,13 @@ header{
   margin: 10px 10px;
   padding: 5px 0 5px 0;
   font-size: 15px;
-  color: rgba(62, 166, 255, 1);
-  border: 1px solid rgba(62, 166, 255, 1); 
+  color: rgb(35, 233, 45);
+  border: 1px solid rgb(35, 233, 45); 
   background-color: #353535;
 }
 
 .is-on{
   color: black;;
-  border: 1px solid rgba(62, 166, 255, 1); 
-  background-color: rgba(62, 166, 255, 1);
+  border: 1px solid rgb(35, 233, 45); 
+  background-color: rgb(35, 233, 45);
 }
