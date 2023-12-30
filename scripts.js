@@ -1,7 +1,7 @@
 let slider = document.createElement('input');         //Create an input element
 slider.type = 'range';                                //Make it a slider(range)
 slider.min = '1';                                     //Set the minimum, maximum, and initial values
-slider.max = '32';
+slider.max = '50';
 slider.value = '16';
 const sliderValue = document.createElement('p');
 sliderValue.classList.add('grid-size-text');
@@ -31,7 +31,7 @@ function createGrid(num){
       divCol.classList.add('divCol');
       gridContainer.appendChild(divCol);
       divCol.addEventListener('mouseover', () =>{   //Event listener to make the divs change color when the mouse is hovered over them
-        divCol.style.backgroundColor = 'grey';
+        divCol.style.backgroundColor = 'black';
       })
     }
     gridContainer.appendChild(divRow);
@@ -52,4 +52,15 @@ modesContainer.appendChild(clearGridButton);
 clearGridButton.addEventListener('click', ()=> {
   clearGrid();
   createGrid(slider.value);
+});
+
+const toggleGridButton = document.createElement('button');   //Create the Toggle Grid button and add the event listener to toggle the grid
+toggleGridButton.innerHTML = "Toggle Grid";
+toggleGridButton.classList.add('toggleGridButton');
+modesContainer.appendChild(toggleGridButton);
+toggleGridButton.addEventListener('click', ()=> {
+  const gridToggle = document.querySelectorAll('.divCol');
+  gridToggle.forEach((div) => {
+    div.style.border = 'none';
+  });
 });
