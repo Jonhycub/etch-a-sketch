@@ -6,7 +6,7 @@
 }
 
 :root {
-  --grid-size: 16;
+  --grid-size: 24;
 }
 
 body{
@@ -107,7 +107,7 @@ input[type="range"]::-webkit-slider-thumb {
   margin: 8px 0 40px 0;
 }
 
-.clearGridButton, .toggleGridButton, .toggleEraserButton, .toggleRainbowButton{
+.clearGridButton, .toggleGridButton, .toggleEraserButton, .toggleRainbowButton, .toggleShadingButton{
   width: 240px;
   height: 35px;
   margin: 10px 10px;
@@ -122,4 +122,36 @@ input[type="range"]::-webkit-slider-thumb {
   color: black;;
   border: 1px solid rgb(35, 233, 45); 
   background-color: rgb(35, 233, 45);
+}
+
+label{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: rgb(35, 233, 45);
+  margin: 30px 0 10px 0;
+}
+
+.color-picker{
+  background: none;
+  border: none;
+  width: 100px;
+  height: 50px;
+  margin-bottom: 30px;
+}
+
+.credits{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: white;
+  order: 1;
+  margin-top: 90px;
+}
+
+.github-logo{
+  order: 2;
+  margin-top: 5px;
+}
+
+.github-logo img{
+  width: 40px;
 }

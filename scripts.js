@@ -2,8 +2,8 @@ let slider = document.createElement('input');         //Create an input element
 slider.classList.add('slider');
 slider.type = 'range';                                //Make it a slider(range)
 slider.min = '1';                                     //Set the minimum, maximum, and initial values
-slider.max = '50';
-slider.value = '16';
+slider.max = '64';
+slider.value = '24';
 const sliderValue = document.createElement('p');
 sliderValue.classList.add('grid-size-text');
 sliderValue.innerText = "Grid Size: " + slider.value + 'x' + slider.value;
@@ -19,7 +19,6 @@ slider.addEventListener('input', function() {         // Add an event listener t
 const controlsContainer = document.querySelector('.controls-container');    //Gets the the modes-container and appends the slider and the slider text
 controlsContainer.appendChild(slider);
 controlsContainer.appendChild(sliderValue);
-
 const gridContainer = document.querySelector('.grid');    //Select the grid
 
 //Function that creates the grid of divs.
@@ -37,13 +36,19 @@ function createGrid(num){
         }else if(rainbowToggle == true){
           divCol.style.backgroundColor = generateRandomRGB();
         }else{
-          divCol.style.backgroundColor = 'black';
+          divCol.style.backgroundColor = colorChoice;
         }
       })
     }
     gridContainer.appendChild(divRow);
   }
 }
+
+let colorChoice = 'black';                    
+const colorPicker = document.querySelector('.color-picker');                    //Event listener to use the color the user picks to draw on the grid
+colorPicker.addEventListener('input', () => {
+  colorChoice = colorPicker.value;
+});
 
 createGrid(slider.value); //Call the function so that the grid appears when the page is loaded
 
@@ -114,7 +119,6 @@ toggleRainbowButton.addEventListener('click', () =>{
   }
   if(rainbowToggle == false){
     rainbowToggle = true;
-    console.log(rainbowToggle)
   }else{
     rainbowToggle = false;
   }
@@ -125,4 +129,4 @@ function generateRandomRGB(){                                 //Generates a rand
   let g = Math.floor(Math.random() *256);
   let b = Math.floor(Math.random() *256);
   return `rgb(${r}, ${g}, ${b})`;
-};                
+};
