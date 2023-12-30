@@ -31,11 +31,13 @@ function createGrid(num){
       const divCol = document.createElement('div');
       divCol.classList.add('divCol');
       gridContainer.appendChild(divCol);
-      divCol.addEventListener('mouseover', () =>{   //Event listener to make the divs change color when the mouse is hovered over them
-        if(eraserToggle == false){
-          divCol.style.backgroundColor = 'black';
-        }else{
+      divCol.addEventListener('mouseover', () =>{   //Event listener to make the divs change color when the mouse is hovered over them depending on the Mode that is selected
+        if(eraserToggle == true){
           divCol.style.backgroundColor = 'white';
+        }else if(rainbowToggle == true){
+          divCol.style.backgroundColor = generateRandomRGB();
+        }else{
+          divCol.style.backgroundColor = 'black';
         }
       })
     }
@@ -98,3 +100,29 @@ clearGridButton.addEventListener('click', ()=> {
   clearGrid();
   createGrid(slider.value);
 });
+
+let rainbowToggle = false;
+const toggleRainbowButton = document.createElement('button');   //Create the Toggle Rainbow Mode button and add the event listener to toggle it on and off
+toggleRainbowButton.innerHTML = "Rainbow Mode";
+toggleRainbowButton.classList.add('toggleRainbowButton');
+controlsContainer.appendChild(toggleRainbowButton);
+toggleRainbowButton.addEventListener('click', () =>{
+  if(toggleRainbowButton.classList.contains('is-on')){
+    toggleRainbowButton.classList.remove('is-on');
+  }else{
+    toggleRainbowButton.classList.add('is-on');
+  }
+  if(rainbowToggle == false){
+    rainbowToggle = true;
+    console.log(rainbowToggle)
+  }else{
+    rainbowToggle = false;
+  }
+});
+
+function generateRandomRGB(){                                 //Generates a random RGB value for the Rainbow Mode
+  let r = Math.floor(Math.random() *256);
+  let g = Math.floor(Math.random() *256);
+  let b = Math.floor(Math.random() *256);
+  return `rgb(${r}, ${g}, ${b})`;
+};                
