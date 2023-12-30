@@ -82,7 +82,6 @@ toggleEraserButton.addEventListener('click', ()=> {            //On click swap t
   }else{
     eraserToggle = false;
   }
-  console.log(eraserToggle);
 });
 
 function clearGrid(){     //Function that clears the grid.
